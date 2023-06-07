@@ -32,21 +32,44 @@ const safeDOM = {
  * https://matejkustec.github.io/SpinThatShit
  */
 function useLoading() {
-  const className = `loaders-css__square-spin`
+  const ball2= `ball2`
   const styleContent = `
-@keyframes square-spin {
-  25% { transform: perspective(100px) rotateX(180deg) rotateY(0); }
-  50% { transform: perspective(100px) rotateX(180deg) rotateY(180deg); }
-  75% { transform: perspective(100px) rotateX(0) rotateY(180deg); }
-  100% { transform: perspective(100px) rotateX(0) rotateY(0); }
+.${ball2} > div {
+	width: 50px;
+	height: 50px;
+	background: transparent;
+  border: solid 4px #0080ff;
+	border-radius: 50%;
+	left: 50%;
+	position: relative;
+	margin-left: -13px;
+	margin-top: 5px;
 }
-.${className} > div {
-  animation-fill-mode: both;
-  width: 50px;
-  height: 50px;
-  background: #fff;
-  animation: square-spin 3s 0s cubic-bezier(0.09, 0.57, 0.49, 0.9) infinite;
+.ball2:before{
+	content: "";
+	margin: -4px;
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	border-radius: 50%;
+	border: solid 4px transparent;
+	border-bottom-color: #0080ff;
+	border-top-color: #0080ff;
+	animation: spinner 2s cubic-bezier(1, 0.01, 0.13, 0.39) infinite;
 }
+
+@keyframes spinner {
+	0% {
+		transform: rotate(0deg) scale(1);
+	}
+	50% {
+		transform: rotate(60deg) scale(1.2);
+	}
+	100%{
+		transform: rotate(360deg) scale(1);
+	}
+}
+
 .app-loading-wrap {
   position: fixed;
   top: 0;
@@ -56,8 +79,8 @@ function useLoading() {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #282c34;
-  z-index: 9;
+  background: rgba(0, 0, 0, 0.952);
+  z-index: 99999;
 }
     `
   const oStyle = document.createElement('style')
@@ -66,7 +89,8 @@ function useLoading() {
   oStyle.id = 'app-loading-style'
   oStyle.innerHTML = styleContent
   oDiv.className = 'app-loading-wrap'
-  oDiv.innerHTML = `<div class="${className}"><div></div></div>`
+  oDiv.innerHTML = `<div class="${ball2}"><div></div></div>`
+
 
   return {
     appendLoading() {

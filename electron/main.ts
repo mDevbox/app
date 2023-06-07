@@ -20,7 +20,7 @@ const VITE_DEV_SERVER_URL = process.env['VITE_DEV_SERVER_URL']
 
 function createWindow() {
   win = new BrowserWindow({
-    icon: path.join(process.env.PUBLIC, '../public/favicon.ico'),
+    icon: path.join(process.env.PUBLIC, 'favicon.ico'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
     },
@@ -32,7 +32,7 @@ function createWindow() {
   })
 
   if (VITE_DEV_SERVER_URL) {
-    win.loadURL(VITE_DEV_SERVER_URL)
+    win.loadURL('http://portal-mbike.com.br/default/pages/login/login.php?ORIGINAL_URL=/default/pages/login/logout.php, self')
   } else {
     // win.loadFile('dist/index.html')
     win.loadFile(path.join(process.env.DIST, 'index.html'))
@@ -40,7 +40,7 @@ function createWindow() {
 }
 
 app.on('window-all-closed', () => {
-  win?.loadURL('http://portal-mbike.com.br/default/pages/login/login.php?ORIGINAL_URL=/default/pages/login/logout.php')
+  win = null
 })
 
 app.whenReady().then(createWindow)
