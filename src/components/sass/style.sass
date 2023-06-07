@@ -1,0 +1,130 @@
+*
+  padding: 0
+  margin: 0
+  box-sizing: border-box
+  font-family: Arial, Helvetica, sans-serif
+  overflow: hidden
+
+
+.LoginSouth
+  position: absolute
+  display: flex
+  justify-content: center
+  align-items: center
+  width: 100%
+  height: 100%
+
+
+.LoginSouth div div:nth-child(1)
+  background-image: url('../img/backgroundRegistre.jpg')
+  width: 100%
+  background-size: cover
+  background-position: center
+  height: 100%
+  box-shadow: -1px -1px 15px rgba(0, 0, 0, 0.291)
+  display: flex
+  justify-content: center
+  align-items: center
+  position: relative
+
+
+.LoginSouth div div:nth-child(1)::before
+  content: ''
+  background-color: #00000088
+  width: 100%
+  height: 100%
+  position: absolute
+
+
+.LoginSouth div div:nth-child(1) img
+  padding: 1rem
+  width: 60%
+  opacity: .5
+
+
+.LoginSouth > div
+  display: flex
+  width: 100%
+  height: 100%
+
+
+.LoginSouth div > div
+  flex: 1
+
+
+section
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  height: 100%
+  width: 100%
+  gap: 1rem
+
+
+section > label
+  width: 50%
+
+
+.formLogin
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+.fas
+  font-size: 8rem
+  margin-bottom: 2rem
+  color: #a1a1a1
+
+
+input[type="text"], input[type="password"]
+  width: 100%
+  padding: .4rem
+  border-radius: 2px
+  border: 1px solid gray
+
+
+input[type="text"]:focus, input[type="password"]:focus
+  border: 1.5px solid rgb(16, 118, 201)
+  outline: none
+
+
+label > p 
+  margin-bottom: .5rem
+  font-size: .9rem
+
+button[type="submit"]
+    border-radius: 2px
+    width: 50%
+    padding: .4rem
+    border: 1px solid gray
+    cursor: pointer
+
+.passwordAlert
+  width: 100%
+  display: flex
+  align-items: center
+  justify-content: center
+  border-radius: 2px
+
+.alertGreen
+  background-color: #3c9521c1 
+  color: black
+  border-radius: 2px
+  border: 1px solid #50913dc1 
+  padding: .5rem
+
+.alertRed
+  background-color: #a61a1aab 
+  border-radius: 2px
+  color: black
+  border: 1px solid #913d3dc1 
+  padding: .5rem
+
+#alertGreen
+  display: none
+
+
+#alertRed
+  display: none
