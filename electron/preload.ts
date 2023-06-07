@@ -37,7 +37,6 @@ function useLoading() {
 .${ball2} > div {
 	width: 50px;
 	height: 50px;
-	background: transparent;
   border: solid 4px #0080ff;
 	border-radius: 50%;
 	left: 50%;
@@ -113,4 +112,4 @@ window.onmessage = ev => {
   ev.data.payload === 'removeLoading' && removeLoading()
 }
 
-setTimeout(removeLoading, 4999)
+setTimeout(removeLoading, 2000)
